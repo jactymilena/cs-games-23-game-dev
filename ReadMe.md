@@ -18,7 +18,7 @@ Ce projet Unity utilise la configuration de base URP et le [Starter Assets - Fir
 
 ![GameCI](./docs/images/gameci.png)
 
-Ce projet contient un workflow [GameCI](https://game.ci/) de base pour compiler et tester le projet à l'aide de Github Actions. Pour plus d'information sur l'utilisation de GameCI avec Github Actions, voir [GameCI Documentation](https://game.ci/docs/github/getting-started).
+Ce projet contient un workflow [GameCI](https://game.ci/) de base pour compiler le projet à l'aide de Github Actions. Pour plus d'information sur l'utilisation de GameCI avec Github Actions, voir la [Documentation GameCI](https://game.ci/docs/github/getting-started).
 
 ![GameCI](./docs/images/actions.png)
 
