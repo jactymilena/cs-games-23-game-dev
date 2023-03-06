@@ -24,7 +24,7 @@ Ce projet contient un workflow [GameCI](https://game.ci/) de base pour compiler 
 
 ### Activation
 
-Si vous désirez utiliser GameCI pour ce projet, il ne vous suffit que d'accomplir [la partie "Activation" de la documentation GameCI](https://game.ci/docs/github/activation). Vous n'avez qu'à suivre la partie [Personal license - Converting into a license](https://game.ci/docs/github/activation#converting-into-a-license) de la documentation. Vous aurez besoin d'un compte Unity (courriel et mot de passe)
+Si vous désirez utiliser GameCI pour ce projet, il vous suffit d'accomplir [la partie "Activation" de la documentation GameCI](https://game.ci/docs/github/activation). Vous n'avez qu'à suivre la partie [Personal license - Converting into a license](https://game.ci/docs/github/activation#converting-into-a-license) de la documentation. Vous aurez besoin d'un compte Unity (courriel et mot de passe)
 
 Dans les réglages Github Actions, vous devriez avoir les secrets suivants:
 
