@@ -6,7 +6,7 @@ Ce projet Unity utilise la configuration de base URP et le [Starter Assets - Fir
 
 ## Prérequis
 
-- [Unity 2021.3.13f1](https://unity.com/releases/editor/whats-new/2021.3.13#release-notes)
+- [Unity 2021.3.14f1](https://unity.com/releases/editor/whats-new/2021.3.14#release-notes)
 
 ## Dans ce projet
 
