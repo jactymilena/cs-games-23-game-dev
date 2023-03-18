@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Reloader : MonoBehaviour
 {
+    private Transform ReloadingPoint;
+    
     // Start is called before the first frame update
     void Start()
     {
