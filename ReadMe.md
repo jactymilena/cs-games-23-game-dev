@@ -3,6 +3,11 @@
 
 Ceci est le repo d'Hydro-Sherbrooke pour le mini-jeu 3D
 
+## Membres
+Benjamin Courchesne
+Jacty Saenz
+Martin Dufour
+
 ## Mini-Jeu 2: 3D
 
 Éléments Base (240 points chacun):
