@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2910791600384539571}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -95,7 +95,7 @@ BoxCollider:
   m_GameObject: {fileID: 2910791600384539571}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -114,10 +114,10 @@ MonoBehaviour:
   OnGunShoot:
     m_PersistentCalls:
       m_Calls: []
-  _totalCooldownTime: 0
+  _totalCooldownTime: 1
   _isAutomatic: 1
-  _bulletForce: 2
-  Bullet: {fileID: 0}
+  _bulletForce: 10
+  Bullet: {fileID: 1459074945260486209, guid: e341f68cbd93df344a9ca8965962ba8c, type: 3}
   _bulletSpawn: {fileID: 9161164453092154419}
 --- !u!1 &6136158491155082152
 GameObject:
