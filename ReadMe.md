@@ -1,5 +1,5 @@
 ﻿
- # Bienvenue à la compétition de développement Jeu Vidéo pour CS Games 2023!
+ # Hydro-Sherbrooke mini-jeu 3D
 
 Ceci est le repo d'Hydro-Sherbrooke pour le mini-jeu 3D
 
