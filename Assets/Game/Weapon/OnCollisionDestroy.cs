@@ -12,7 +12,6 @@ public class OnCollisionDestroy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // If gameobject not instance of same type
         if (!collision.gameObject.CompareTag("Bullet"))
         {
             if (collision.gameObject.tag.Equals("Dummy"))

@@ -6,11 +6,16 @@ public class ShotGun : Gun
 {
     [SerializeField]
     private int _bulletCount = 5;
-
+    
+    protected override void Awake()
+    {
+        base.Awake();
+        GunName = "Shotgun";
+    }
+    
     protected override void Fire()
     {
         if (HasAmmunition){
-            // Do like fire but with n bullets in a spread pattern
             for (int i = 0; i < _bulletCount; i++)
             {
                 Rigidbody bullet = Instantiate(Bullet, _bulletSpawn.position, _bulletSpawn.rotation);
