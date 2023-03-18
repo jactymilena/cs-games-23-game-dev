@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using TextMeshPro = TMPro.TextMeshPro;
 
@@ -22,9 +23,10 @@ public class Gun : Weapon
     [SerializeField] private Transform _bulletSpawn;
     [SerializeField] private Transform _reloadRotationPoint;
     [SerializeField] private int _magSizeMax = 30; 
-    [SerializeField] private int _magSize;
+    [FormerlySerializedAs("_magSize")] [SerializeField] private int _ammoCount;
     [SerializeField] private TMP_Text _reloadText;
-    private bool HasAmmunition => _magSize > 0;
+    private bool _isReloading = false;
+    private bool HasAmmunition => _ammoCount > 0;
     public float ReloadTime = 2f;
 
     
@@ -33,37 +35,42 @@ public class Gun : Weapon
     private void Awake()
     {
         _currentCooldown = _totalCooldownTime;
-        _magSize = _magSizeMax;
-        _reloadText.enabled = false;
+        _ammoCount = _magSizeMax;
     }
 
+    private void Start()
+    {
+        PrintGunState();
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        if (_isAutomatic)
-        {
-            if (Input.GetMouseButton(0) && _currentCooldown <= 0f)
+        if (!_isReloading) {
+            if (_isAutomatic)
             {
-                // OnGunShoot.Invoke();
-                _currentCooldown = _totalCooldownTime;
-                Fire();
+                if (Input.GetMouseButton(0) && _currentCooldown <= 0f)
+                {
+                    // OnGunShoot.Invoke();
+                    _currentCooldown = _totalCooldownTime;
+                    Fire();
+                }
             }
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(0) && _currentCooldown <= 0f)
+            else
             {
-                // OnGunShoot.Invoke();
-                _currentCooldown = _totalCooldownTime;
-                Fire();
+                if (Input.GetMouseButtonDown(0) && _currentCooldown <= 0f)
+                {
+                    // OnGunShoot.Invoke();
+                    _currentCooldown = _totalCooldownTime;
+                    Fire();
+                }
             }
-        }
-        
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(ReloadCoroutine());
-        }
 
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                StartCoroutine(ReloadCoroutine());
+            }
+        }
 
         _currentCooldown -= Time.deltaTime;
     }
@@ -75,29 +82,35 @@ public class Gun : Weapon
                 Instantiate(Bullet, _bulletSpawn.position, _bulletSpawn.rotation);
 
             bulletInstance.AddForce(transform.forward * _bulletForce, ForceMode.VelocityChange);
-            --_magSize;
+            --_ammoCount;
+            PrintGunState();
         }
         else
         {
             StartCoroutine(ReloadCoroutine());
         }
-        
         // OnGunShoot.Invoke();
+    }
+
+    private void PrintGunState()
+    {
+        _reloadText.text = @$"{_ammoCount}/{_magSizeMax}";
     }
 
     // Reloading coroutine
     IEnumerator ReloadCoroutine()
     {
-        _reloadText.enabled = true;
+        _isReloading = true;
+        _reloadText.text = "Reloading...";
 
         //yield on a new YieldInstruction that waits for 5 seconds.
 
         yield return new WaitForSeconds(ReloadTime);
 
         //After we have waited 5 seconds print the time again.
-        _reloadText.enabled = false;
-
-        _magSize = _magSizeMax;
+        _isReloading = false;
+        _ammoCount = _magSizeMax;
+        PrintGunState();
     }
 }
 
