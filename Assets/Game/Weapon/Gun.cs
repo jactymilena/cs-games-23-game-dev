@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using TextMeshPro = TMPro.TextMeshPro;
 
-public class Gun : Weapon
+public class Gun : MonoBehaviour
 {
     // Private fields
     [SerializeField] private float _totalCooldownTime;
