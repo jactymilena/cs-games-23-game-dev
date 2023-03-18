@@ -731,7 +731,7 @@ PrefabInstance:
     - target: {fileID: 1671668099835091240, guid: efafb01196e2e894a90299b7d0d73695,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1671668099835091240, guid: efafb01196e2e894a90299b7d0d73695,
         type: 3}
@@ -787,6 +787,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ActualGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746722079744424818, guid: efafb01196e2e894a90299b7d0d73695,
+        type: 3}
+      propertyPath: _reloadText
+      value: 
+      objectReference: {fileID: 1943364648}
+    - target: {fileID: 8271985663302956626, guid: efafb01196e2e894a90299b7d0d73695,
+        type: 3}
+      propertyPath: _reloadText
+      value: 
+      objectReference: {fileID: 1943364648}
+    - target: {fileID: 8271985663302956626, guid: efafb01196e2e894a90299b7d0d73695,
+        type: 3}
+      propertyPath: _bulletForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271985663302956626, guid: efafb01196e2e894a90299b7d0d73695,
+        type: 3}
+      propertyPath: _totalCooldownTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efafb01196e2e894a90299b7d0d73695, type: 3}

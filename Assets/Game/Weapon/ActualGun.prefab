@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6338660134702567325}
   - component: {fileID: 3617205846662051592}
   - component: {fileID: 5746722079744424818}
-  - component: {fileID: 876640793301263137}
+  - component: {fileID: 8271985663302956626}
   m_Layer: 0
   m_Name: ActualGun
   m_TagString: Untagged
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2910791600384539571}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07d10160aed8df742ae886c59e149f59, type: 3}
   m_Name: 
@@ -154,9 +154,10 @@ MonoBehaviour:
   _bulletSpawn: {fileID: 9161164453092154419}
   _reloadRotationPoint: {fileID: 6013025581104534765}
   _magSizeMax: 30
-  _magSize: 0
+  _ammoCount: 0
+  _reloadText: {fileID: 0}
   ReloadTime: 2
---- !u!114 &876640793301263137
+--- !u!114 &8271985663302956626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,9 +166,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2910791600384539571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a05b0c693a31c4e930cabd1c0d6137, type: 3}
+  m_Script: {fileID: 11500000, guid: 4769d99df4360e74182435e3f1e68588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGunShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  _totalCooldownTime: 2
+  _isAutomatic: 1
+  _bulletForce: 2
+  Bullet: {fileID: 1459074945260486209, guid: e341f68cbd93df344a9ca8965962ba8c, type: 3}
+  _bulletSpawn: {fileID: 9161164453092154419}
+  _reloadRotationPoint: {fileID: 6013025581104534765}
+  _magSizeMax: 3
+  _ammoCount: 0
+  _reloadText: {fileID: 0}
+  ReloadTime: 2
+  _bulletCount: 5
 --- !u!1 &6136158491155082152
 GameObject:
   m_ObjectHideFlags: 0

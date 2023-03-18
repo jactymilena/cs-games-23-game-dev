@@ -18,15 +18,16 @@ public class Gun : Weapon
     private float _currentCooldown;
 
     [SerializeField] private bool _isAutomatic = true;
-    [SerializeField] private float _bulletForce = 2f;
+    [SerializeField] protected float _bulletForce = 2f;
     public Rigidbody Bullet;
-    [SerializeField] private Transform _bulletSpawn;
+    [SerializeField] protected Transform _bulletSpawn;
     [SerializeField] private Transform _reloadRotationPoint;
     [SerializeField] private int _magSizeMax = 30; 
-    [FormerlySerializedAs("_magSize")] [SerializeField] private int _ammoCount;
+    [FormerlySerializedAs("_magSize")] [SerializeField]
+    protected int _ammoCount;
     [SerializeField] private TMP_Text _reloadText;
     private bool _isReloading = false;
-    private bool HasAmmunition => _ammoCount > 0;
+    protected bool HasAmmunition => _ammoCount > 0;
     public float ReloadTime = 2f;
 
     
@@ -74,8 +75,8 @@ public class Gun : Weapon
 
         _currentCooldown -= Time.deltaTime;
     }
-    
-    public void Fire()
+
+    protected virtual void Fire()
     {
         if (HasAmmunition){
             var bulletInstance =
@@ -92,13 +93,13 @@ public class Gun : Weapon
         // OnGunShoot.Invoke();
     }
 
-    private void PrintGunState()
+    protected void PrintGunState()
     {
         _reloadText.text = @$"{_ammoCount}/{_magSizeMax}";
     }
 
     // Reloading coroutine
-    IEnumerator ReloadCoroutine()
+    protected IEnumerator ReloadCoroutine()
     {
         _isReloading = true;
         _reloadText.text = "Reloading...";
