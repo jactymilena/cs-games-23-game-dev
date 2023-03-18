@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 935470046}
   - component: {fileID: 935470045}
   m_Layer: 5
-  m_Name: CoolDownText
+  m_Name: CooldownText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
