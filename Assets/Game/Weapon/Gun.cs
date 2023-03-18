@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.UIElements;
+using TextMeshPro = TMPro.TextMeshPro;
 
 public class Gun : Weapon
 {
@@ -17,14 +20,21 @@ public class Gun : Weapon
     [SerializeField] private float _bulletForce = 2f;
     public Rigidbody Bullet;
     [SerializeField] private Transform _bulletSpawn;
-    [SerializeField] private int _magSizeMax = 30;
+    [SerializeField] private Transform _reloadRotationPoint;
+    [SerializeField] private int _magSizeMax = 30; 
     [SerializeField] private int _magSize;
+    [SerializeField] private TMP_Text _reloadText;
     private bool HasAmmunition => _magSize > 0;
+    public float ReloadTime = 2f;
 
+    
+    // Text mesh
+    
     private void Awake()
     {
         _currentCooldown = _totalCooldownTime;
         _magSize = _magSizeMax;
+        _reloadText.enabled = false;
     }
 
     // Update is called once per frame
@@ -50,7 +60,9 @@ public class Gun : Weapon
         }
         
         if (Input.GetKeyDown(KeyCode.R))
+        {
             StartCoroutine(ReloadCoroutine());
+        }
 
 
         _currentCooldown -= Time.deltaTime;
@@ -65,23 +77,25 @@ public class Gun : Weapon
             bulletInstance.AddForce(transform.forward * _bulletForce, ForceMode.VelocityChange);
             --_magSize;
         }
-        else 
+        else
+        {
             StartCoroutine(ReloadCoroutine());
+        }
         
         // OnGunShoot.Invoke();
     }
-    
+
     // Reloading coroutine
     IEnumerator ReloadCoroutine()
     {
-        //Print the time of when the function is first called.
-        Debug.Log("Reloading");
+        _reloadText.enabled = true;
 
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(2);
+
+        yield return new WaitForSeconds(ReloadTime);
 
         //After we have waited 5 seconds print the time again.
-        Debug.Log("Reloading done ");
+        _reloadText.enabled = false;
 
         _magSize = _magSizeMax;
     }
