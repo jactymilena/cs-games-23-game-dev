@@ -21,6 +21,7 @@ public class OnCollisionDestroy : MonoBehaviour
 
             Destroy(gameObject);
         }
+        // Insures no bullets have weird behaviour
         else
         {
             Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
